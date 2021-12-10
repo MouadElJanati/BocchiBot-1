@@ -41,7 +41,7 @@ const start = (bocchi = new Client()) => {
         const gc = await bocchi.getAllGroups()
         console.log(color('[BOCCHI]'), 'Added to a new group. Name:', color(chat.contact.name, 'yellow'), 'Total members:', color(chat.groupMetadata.participants.length, 'yellow'))
         if (chat.groupMetadata.participants.includes(ownerBot)) {
-            await bocchi.sendText(chat.id, ind.addedGroup(chat))
+            await bocchi.sendText(chat.id, eng.addedGroup(chat))
         } else if (gc.length > groupLimit) {
             await bocchi.sendText(chat.id, `Max groups reached!\n\nCurrent status: ${gc.length}/${groupLimit}`)
             await bocchi.deleteChat(chat.id)
@@ -51,7 +51,7 @@ const start = (bocchi = new Client()) => {
             await bocchi.deleteChat(chat.id)
             await bocchi.leaveGroup(chat.id)
         } else {
-            await bocchi.sendText(chat.id, ind.addedGroup(chat))
+            await bocchi.sendText(chat.id, eng.addedGroup(chat))
         }
     })
 
@@ -76,7 +76,7 @@ const start = (bocchi = new Client()) => {
     })
 
     bocchi.onIncomingCall(async (callData) => {
-        await bocchi.sendText(callData.peerJid, ind.blocked(ownerBot))
+        await bocchi.sendText(callData.peerJid, eng.blocked(ownerBot))
         await bocchi.contactBlock(callData.peerJid)
         console.log(color('[BLOCK]', 'red'), color(`${callData.peerJid} has been blocked.`, 'yellow'))
     })
