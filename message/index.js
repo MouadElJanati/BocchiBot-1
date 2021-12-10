@@ -1934,7 +1934,7 @@ module.exports = msgHandler = async (bocchi = new Client(), message) => {
             break
             case prefix+'tos':
                 if (!isRegistered) return await bocchi.reply(from, eng.notRegistered(), id)
-                await bocchi.sendLinkWithAutoPreview(from, 'https://github.com/SlavyanDesu/BocchiBot', eng.tos(ownerNumber))
+                await bocchi.sendLinkWithAutoPreview(from, 'https://github.com/MouadElJanati/BocchiBot', eng.tos(ownerNumber))
             break
             case prefix+'join':
                 if (!isRegistered) return await bocchi.reply(from, eng.notRegistered(), id)
